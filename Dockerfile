@@ -6,17 +6,17 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set the working directory inside the container
-WORKDIR /jobportal1
+WORKDIR /jobportal
 
 # Copy the requirements file into the container at /Newjobportal
-COPY requirements.txt /jobportal1/
+COPY requirements.txt /jobportal/
 
 # Upgrade pip and install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
 # Copy the Django project code into the container's working directory
-COPY . /jobportal1/
+COPY . /jobportal/
 
 # Expose the port on which Django will run
 EXPOSE 8000
